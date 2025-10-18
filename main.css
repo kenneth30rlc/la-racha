@@ -1,0 +1,54 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, Arial, sans-serif;
+
+    /* fondo suave agradable a la vista (gradiente pastel) */
+    background: linear-gradient(180deg, #d81365 0%, #47097a 50%, #3f79e6 100%);
+    color: #14213d; /* texto con buen contraste */
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#rachaBtn {
+    padding: 14px 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    background: #ffffff;
+    cursor: pointer;
+    transition: transform .12s ease, background .12s;
+    position: relative;
+    z-index: 1;
+}
+
+#rachaBtn:active {
+    transform: scale(.98);
+    background: #f0f0f0;
+}
+
+/* Estrellas */
+.star {
+    position: absolute;
+    pointer-events: none;
+    color: gold;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    transform: translate(0, 0);
+    will-change: transform, opacity;
+    animation-name: floatUp;
+    animation-timing-function: cubic-bezier(.2,.9,.2,1);
+    animation-fill-mode: forwards;
+    z-index: 9999;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translate(var(--dx, 0px), -80px) rotate(360deg) scale(.6);
+        opacity: 0;
+    }
+}
